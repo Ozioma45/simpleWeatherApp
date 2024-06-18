@@ -1,5 +1,5 @@
-// Define a function to update the datetime and date elements
-function updateDateTime(localtime, city, country) {
+// Define a function to update the datetime, date, city name, and weather icon
+function updateWeatherInfo(localtime, city, country, iconUrl) {
   const localDate = new Date(localtime);
 
   // Format for datetime (including weekday)
@@ -11,6 +11,8 @@ function updateDateTime(localtime, city, country) {
     datetimeOptions
   );
   document.querySelector(".datetime").innerText = formattedLocalTime;
+
+  // Update city name with country
   document.querySelector(".cityName").innerText = `${city}, ${country}`;
 
   // Format for date (without weekday)
@@ -21,6 +23,11 @@ function updateDateTime(localtime, city, country) {
   };
   const formattedDate = localDate.toLocaleDateString(undefined, dateOptions);
   document.querySelector(".date").innerText = formattedDate;
+
+  // Update weather icon
+  const iconElement = document.getElementById("icon");
+  iconElement.src = iconUrl;
+  iconElement.alt = "Weather icon";
 }
 
 // Define your fetchWeather function
@@ -32,15 +39,25 @@ async function fetchWeather(location) {
     );
     const weatherData = await weatherResponse.json();
 
+    console.log(weatherData); // Log the data to debug
+
     if (!weatherData.location) {
       alert("Location not found");
       return;
     }
 
-    const { localtime, name: city, country } = weatherData.location;
+    const {
+      location: { localtime, name: city, country },
+      current: {
+        condition: { icon },
+      },
+    } = weatherData;
 
-    // Update the datetime element with the formatted local time
-    updateDateTime(localtime, city, country);
+    // Construct the icon URL based on the received icon code
+    const iconUrl = `https:${icon}`;
+
+    // Update the weather information on the page
+    updateWeatherInfo(localtime, city, country, iconUrl);
   } catch (error) {
     console.error("Error fetching weather data:", error);
     alert("Failed to fetch weather data. Please try again later.");

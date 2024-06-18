@@ -33,11 +33,15 @@ body {
   color: #fff;
 }
 
-.key-info {
+.timeVenue {
   padding: 2rem 0;
   margin: auto;
   width: 90%;
   text-align: start;
+}
+
+.timeVenue #icon {
+  width: 7rem;
 }
 
 .datetime {
