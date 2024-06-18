@@ -96,6 +96,8 @@ body {
 
 #forecast {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .forecast-day {
@@ -133,7 +135,7 @@ body {
 
   .days-forcast {
     width: 95%;
-    height: 20rem;
+    height: 30rem;
     margin: auto;
     display: flex;
     justify-content: space-between;
