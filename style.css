@@ -11,4 +11,57 @@ body {
   text-align: center;
   background-color: #343d4b;
   transition: background-color 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 70%;
+}
+
+.current-forcast {
+  width: 30%;
+  height: 30rem;
+  border-radius: 10%;
+  background-image: linear-gradient(to bottom left, #88ecef8c, #535ae680),
+    url("img/default.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 0 10px 5px rgba(48, 48, 48, 0.314);
+}
+
+@media (max-width: 380px) {
+  body {
+    flex-direction: column;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .current-forcast {
+    width: 95%;
+    margin: auto;
+    height: 20rem;
+  }
+}
+
+/* Medium devices (Tablets) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (Desktops) */
+@media (min-width: 992px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/* Extra large devices (Large Desktops) */
+@media (min-width: 1200px) {
+  body {
+    font-size: 20px;
+  }
 }

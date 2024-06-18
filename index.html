@@ -6,5 +6,33 @@
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <!--THE DIALOG BOX-->
+    <dialog class="popup">
+      <div class="close-btn Cbtn">&times;</div>
+      <div class="form" id="myform">
+        <h2>Add the location</h2>
+        <div class="form-element">
+          <input
+            type="text"
+            id="title"
+            placeholder="Title of the book"
+            name="title"
+            required />
+          <button id="subBtn">Submit</button>
+        </div>
+      </div>
+    </dialog>
+    <!--DIALOG ENDS-->
+    <div class="container">
+      <div class="current-forcast">
+        <div>
+          <h2 class="weekday"></h2>
+        </div>
+      </div>
+      <div class="days-forcast"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
