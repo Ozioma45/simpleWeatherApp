@@ -46,15 +46,13 @@ function updateWeatherInfo(
   document.querySelector(".description").innerText = `${description}`;
 
   // Update precipitation
-  document.querySelector(
-    ".precipitation"
-  ).innerText = `Precipitation: ${precipitation} mm`;
+  document.querySelector(".precipitation").innerText = `${precipitation} mm`;
 
   // Update humidity
-  document.querySelector(".humidity").innerText = `Humidity: ${humidity}%`;
+  document.querySelector(".humidity").innerText = `${humidity}%`;
 
   // Update wind
-  document.querySelector(".wind").innerText = `Wind: ${wind} kph`;
+  document.querySelector(".wind").innerText = `${wind} kph`;
 }
 
 // Define your fetchWeather function
