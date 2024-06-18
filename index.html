@@ -25,22 +25,39 @@
     </dialog>
     <!--DIALOG ENDS-->
     <div class="container">
-      <div class="current-forcast">
-        <div class="timeVenue">
-          <h2 class="datetime"></h2>
-          <p class="date"></p>
-          <p class="vCont">
-            <img src="img/venue.png" alt="venue icon" class="venue" />
-            <span class="cityName"></span>
-          </p>
+      <div class="mainCont">
+        <div class="current-forcast">
+          <div class="timeVenue">
+            <h2 class="datetime"></h2>
+            <p class="date"></p>
+            <p class="vCont">
+              <img src="img/venue.png" alt="venue icon" class="venue" />
+              <span class="cityName"></span>
+            </p>
+          </div>
+          <div class="timeVenue">
+            <img id="icon" src="" alt="Weather icon" />
+            <p class="temperature temp"></p>
+            <p class="description"></p>
+          </div>
         </div>
-        <div class="timeVenue">
-          <img id="icon" src="" alt="Weather icon" />
-          <p class="temperature temp"></p>
-          <p class="description"></p>
+        <div class="days-forcast">
+          <div class="extraInfo">
+            <div>
+              <p class="extraInfoData">PRECIPITATION</p>
+              <p class="extraInfoDataValue precipitation"></p>
+            </div>
+            <div>
+              <p class="extraInfoData">HUMIDITY</p>
+              <p class="extraInfoDataValue humidity"></p>
+            </div>
+            <div>
+              <p class="extraInfoData">WIND</p>
+              <p class="extraInfoDataValue wind"></p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="days-forcast"></div>
     </div>
 
     <script src="script.js"></script>

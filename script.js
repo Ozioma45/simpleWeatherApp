@@ -5,7 +5,10 @@ function updateWeatherInfo(
   country,
   iconUrl,
   temp,
-  description
+  description,
+  precipitation,
+  humidity,
+  wind
 ) {
   const localDate = new Date(localtime);
 
@@ -41,6 +44,17 @@ function updateWeatherInfo(
 
   // Update description
   document.querySelector(".description").innerText = `${description}`;
+
+  // Update precipitation
+  document.querySelector(
+    ".precipitation"
+  ).innerText = `Precipitation: ${precipitation} mm`;
+
+  // Update humidity
+  document.querySelector(".humidity").innerText = `Humidity: ${humidity}%`;
+
+  // Update wind
+  document.querySelector(".wind").innerText = `Wind: ${wind} kph`;
 }
 
 // Define your fetchWeather function
@@ -64,6 +78,9 @@ async function fetchWeather(location) {
       current: {
         condition: { icon, text: description },
         temp_c: temp,
+        precip_mm: precipitation,
+        humidity,
+        wind_kph: wind,
       },
     } = weatherData;
 
@@ -71,7 +88,17 @@ async function fetchWeather(location) {
     const iconUrl = `https:${icon}`;
 
     // Update the weather information on the page
-    updateWeatherInfo(localtime, city, country, iconUrl, temp, description);
+    updateWeatherInfo(
+      localtime,
+      city,
+      country,
+      iconUrl,
+      temp,
+      description,
+      precipitation,
+      humidity,
+      wind
+    );
   } catch (error) {
     console.error("Error fetching weather data:", error);
     alert("Failed to fetch weather data. Please try again later.");
