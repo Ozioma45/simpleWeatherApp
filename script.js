@@ -1,5 +1,12 @@
 // Define a function to update the datetime, date, city name, and weather icon
-function updateWeatherInfo(localtime, city, country, iconUrl) {
+function updateWeatherInfo(
+  localtime,
+  city,
+  country,
+  iconUrl,
+  temp,
+  description
+) {
   const localDate = new Date(localtime);
 
   // Format for datetime (including weekday)
@@ -28,6 +35,12 @@ function updateWeatherInfo(localtime, city, country, iconUrl) {
   const iconElement = document.getElementById("icon");
   iconElement.src = iconUrl;
   iconElement.alt = "Weather icon";
+
+  // Update temperature
+  document.querySelector(".temperature").innerText = `${temp}°C`;
+
+  // Update description
+  document.querySelector(".description").innerText = `${description}`;
 }
 
 // Define your fetchWeather function
@@ -39,7 +52,7 @@ async function fetchWeather(location) {
     );
     const weatherData = await weatherResponse.json();
 
-    console.log(weatherData); // Log the data to debug
+    console.log(weatherData);
 
     if (!weatherData.location) {
       alert("Location not found");
@@ -49,7 +62,8 @@ async function fetchWeather(location) {
     const {
       location: { localtime, name: city, country },
       current: {
-        condition: { icon },
+        condition: { icon, text: description },
+        temp_c: temp,
       },
     } = weatherData;
 
@@ -57,7 +71,7 @@ async function fetchWeather(location) {
     const iconUrl = `https:${icon}`;
 
     // Update the weather information on the page
-    updateWeatherInfo(localtime, city, country, iconUrl);
+    updateWeatherInfo(localtime, city, country, iconUrl, temp, description);
   } catch (error) {
     console.error("Error fetching weather data:", error);
     alert("Failed to fetch weather data. Please try again later.");
