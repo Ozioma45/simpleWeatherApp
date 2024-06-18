@@ -1,4 +1,4 @@
-// Define a function to update the datetime, date, city name, and weather icon
+// Define a function to update the datetime, date, city name, weather icon, temperature, description, precipitation, humidity, and wind
 function updateWeatherInfo(
   localtime,
   city,
@@ -55,6 +55,30 @@ function updateWeatherInfo(
   document.querySelector(".wind").innerText = `${wind} kph`;
 }
 
+// Define a function to display the forecast
+function displayForecast(forecast, unit) {
+  const forecastDiv = document.getElementById("forecast");
+  forecastDiv.innerHTML = ""; // Clear previous forecast data
+  forecast.forEach((day) => {
+    const date = new Date(day.date).toLocaleDateString(undefined, {
+      weekday: "short",
+    });
+    const temp =
+      unit === "C" ? `${day.day.avgtemp_c}°C` : `${day.day.avgtemp_f}°F`;
+    const icon = day.day.condition.icon;
+    const description = day.day.condition.text;
+
+    const dayDiv = document.createElement("div");
+    dayDiv.className = "forecast-day";
+    dayDiv.innerHTML = `
+      <img src="${icon}" alt="Weather icon">
+      <h4>${date}</h4>
+      <p>${temp}</p>
+    `;
+    forecastDiv.appendChild(dayDiv);
+  });
+}
+
 // Define your fetchWeather function
 async function fetchWeather(location) {
   const apiKey = "5e418667fd424e40a0f22356241706";
@@ -64,7 +88,7 @@ async function fetchWeather(location) {
     );
     const weatherData = await weatherResponse.json();
 
-    console.log(weatherData);
+    console.log(weatherData); // Log the data to debug
 
     if (!weatherData.location) {
       alert("Location not found");
@@ -80,6 +104,7 @@ async function fetchWeather(location) {
         humidity,
         wind_kph: wind,
       },
+      forecast: { forecastday },
     } = weatherData;
 
     // Construct the icon URL based on the received icon code
@@ -97,6 +122,9 @@ async function fetchWeather(location) {
       humidity,
       wind
     );
+
+    // Display the forecast
+    displayForecast(forecastday, "C");
   } catch (error) {
     console.error("Error fetching weather data:", error);
     alert("Failed to fetch weather data. Please try again later.");

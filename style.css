@@ -94,6 +94,25 @@ body {
   justify-content: space-between;
 }
 
+#forecast {
+  display: flex;
+}
+
+.forecast-day {
+  background-color: #272e37;
+  border: 1px solid #ffffff2c;
+  border-radius: 10%;
+  width: 30%;
+  height: 8rem;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.forecast-day:hover {
+  background-color: #fff;
+  color: #000;
+}
+
 @media (max-width: 768px) {
   .mainCont {
     width: 100%;
@@ -114,8 +133,11 @@ body {
 
   .days-forcast {
     width: 95%;
-    height: 25rem;
+    height: 20rem;
     margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
   }
 
   .extraInfo {
