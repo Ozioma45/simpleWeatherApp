@@ -81,7 +81,7 @@ function displayForecast(forecast, unit) {
 
 // Define your fetchWeather function
 async function fetchWeather(location) {
-  const apiKey = "5e418667fd424e40a0f22356241706";
+  const apiKey = "5633bdf9839f4e27b97180741241806";
   try {
     const weatherResponse = await fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=5`
