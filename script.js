@@ -1,5 +1,5 @@
 // Define a function to update the datetime and date elements
-function updateDateTime(localtime) {
+function updateDateTime(localtime, city, country) {
   const localDate = new Date(localtime);
 
   // Format for datetime (including weekday)
@@ -11,6 +11,7 @@ function updateDateTime(localtime) {
     datetimeOptions
   );
   document.querySelector(".datetime").innerText = formattedLocalTime;
+  document.querySelector(".cityName").innerText = `${city}, ${country}`;
 
   // Format for date (without weekday)
   const dateOptions = {
@@ -36,10 +37,10 @@ async function fetchWeather(location) {
       return;
     }
 
-    const { localtime } = weatherData.location;
+    const { localtime, name: city, country } = weatherData.location;
 
     // Update the datetime element with the formatted local time
-    updateDateTime(localtime);
+    updateDateTime(localtime, city, country);
   } catch (error) {
     console.error("Error fetching weather data:", error);
     alert("Failed to fetch weather data. Please try again later.");

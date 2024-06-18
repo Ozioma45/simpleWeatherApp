@@ -45,6 +45,20 @@ body {
   font-size: 2rem;
 }
 
+.vCont {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.venue {
+  width: 0.8rem;
+}
+
+.date {
+  margin: 0.3rem 0;
+}
+
 @media (max-width: 768px) {
   body {
     flex-direction: column;
