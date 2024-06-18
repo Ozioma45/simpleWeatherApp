@@ -7,7 +7,7 @@
 body {
   width: 100%;
   min-height: 100vh;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-align: center;
   background-color: #343d4b;
   transition: background-color 0.5s ease;
@@ -30,9 +30,22 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0 0 10px 5px rgba(48, 48, 48, 0.314);
+  color: #fff;
 }
 
-@media (max-width: 380px) {
+.key-info {
+  padding: 2rem 0;
+  margin: auto;
+  width: 90%;
+  text-align: start;
+}
+
+.datetime {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
   body {
     flex-direction: column;
   }
@@ -46,10 +59,6 @@ body {
     margin: auto;
     height: 20rem;
   }
-}
-
-/* Medium devices (Tablets) */
-@media (min-width: 768px) {
 }
 
 /* Large devices (Desktops) */
