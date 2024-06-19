@@ -52,18 +52,14 @@ body {
 }
 
 .timeVenue {
-  padding-top: 1.5rem;
   margin: auto;
   width: 90%;
   text-align: start;
 }
 
-.temp {
-  font-size: 2rem;
-}
-
 .timeVenue #icon {
   width: 7rem;
+  margin-bottom: -2rem;
 }
 
 .datetime {
@@ -147,6 +143,7 @@ button {
     width: 95%;
     margin: auto;
     height: 20rem;
+    margin-top: 1rem;
   }
 
   .days-forcast {
@@ -167,6 +164,10 @@ button {
   .forecast-day {
     width: 25%;
     height: 8rem;
+  }
+
+  #temp {
+    font-size: 2.5rem;
   }
 }
 
