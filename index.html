@@ -8,16 +8,16 @@
   </head>
   <body>
     <!--THE DIALOG BOX-->
-    <dialog class="popup hide">
+    <dialog class="popup">
       <div class="close-btn Cbtn">&times;</div>
       <div class="form" id="myform">
         <h2>Add the location</h2>
         <div class="form-element">
           <input
             type="text"
-            id="title"
-            placeholder="Title of the book"
-            name="title"
+            id="location"
+            placeholder="Insert Location"
+            name="location"
             required />
           <button id="subBtn">Submit</button>
         </div>
@@ -58,6 +58,10 @@
             </div>
           </div>
           <div id="forecast"></div>
+          <button id="dialogToggle">
+            <img src="img/venue.png" alt="venue icon" class="venue" />
+            Change Location
+          </button>
         </div>
       </div>
     </div>

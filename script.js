@@ -59,14 +59,15 @@ function updateWeatherInfo(
 function displayForecast(forecast, unit) {
   const forecastDiv = document.getElementById("forecast");
   forecastDiv.innerHTML = ""; // Clear previous forecast data
-  forecast.forEach((day) => {
+
+  // Limit the forecast to 4 days
+  forecast.slice(0, 4).forEach((day) => {
     const date = new Date(day.date).toLocaleDateString(undefined, {
       weekday: "short",
     });
     const temp =
       unit === "C" ? `${day.day.avgtemp_c}°C` : `${day.day.avgtemp_f}°F`;
     const icon = day.day.condition.icon;
-    const description = day.day.condition.text;
 
     const dayDiv = document.createElement("div");
     dayDiv.className = "forecast-day";
@@ -134,8 +135,34 @@ async function fetchWeather(location) {
 // Initial fetch to display default weather data for London
 fetchWeather("London");
 
+const addBtn = document.getElementById("dialogToggle");
+const dialog = document.querySelector("dialog");
+const closeButton = document.querySelector(".close-btn");
+
+// "Show the dialog" button opens the dialog modally
+addBtn.addEventListener("click", () => {
+  dialog.showModal();
+});
+
 // Event listener for the form submission (assuming you want to add this functionality)
 document.getElementById("subBtn").addEventListener("click", function () {
-  const location = document.getElementById("title").value;
+  const location = document.getElementById("location").value;
+
+  // Check if the location field is filled
+  if (!location) {
+    alert("Please provide a location (city)");
+    return;
+  }
+
   fetchWeather(location);
+
+  // Reset the form by setting input values to an empty string
+  document.getElementById("location").value = "";
+
+  // Close the dialog
+  dialog.close();
+});
+
+closeButton.addEventListener("click", () => {
+  dialog.close();
 });
