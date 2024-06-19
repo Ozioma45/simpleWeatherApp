@@ -63,7 +63,7 @@ body {
 
 .timeVenue #icon {
   width: 7rem;
-  margin-bottom: -2rem;
+  margin-bottom: -1rem;
 }
 
 .datetime {
@@ -136,6 +136,10 @@ button {
   border-radius: 10px;
 }
 
+#temp {
+  font-size: 3rem;
+}
+
 @media (max-width: 768px) {
   .mainCont {
     width: 100%;
@@ -157,6 +161,7 @@ button {
 
   .days-forcast {
     width: 95%;
+    min-width: 350px;
     height: 30rem;
     margin: auto;
     display: flex;
@@ -164,6 +169,7 @@ button {
     flex-direction: column;
     border-radius: 10%;
     padding: 2rem 1.5rem;
+    margin-top: 1rem;
   }
 
   .extraInfo {
