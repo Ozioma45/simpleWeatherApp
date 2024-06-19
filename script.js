@@ -124,6 +124,9 @@ async function fetchWeather(location) {
       wind
     );
 
+    // Save the current city to local storage
+    localStorage.setItem("currentCity", city);
+
     // Display the forecast
     displayForecast(forecastday, "C");
   } catch (error) {
@@ -132,8 +135,19 @@ async function fetchWeather(location) {
   }
 }
 
-// Initial fetch to display default weather data for London
-fetchWeather("London");
+// Function to load the city from local storage
+function loadCityFromLocalStorage() {
+  const savedCity = localStorage.getItem("currentCity");
+  if (savedCity) {
+    fetchWeather(savedCity);
+  } else {
+    // If no city is saved, load the default weather for London
+    fetchWeather("London");
+  }
+}
+
+// Call the function to load the city from local storage when the page loads
+document.addEventListener("DOMContentLoaded", loadCityFromLocalStorage);
 
 const addBtn = document.getElementById("dialogToggle");
 const dialog = document.querySelector("dialog");
