@@ -145,7 +145,7 @@ addBtn.addEventListener("click", () => {
 });
 
 // Event listener for the form submission (assuming you want to add this functionality)
-document.getElementById("subBtn").addEventListener("click", function () {
+function submitForm() {
   const location = document.getElementById("location").value;
 
   // Check if the location field is filled
@@ -161,7 +161,19 @@ document.getElementById("subBtn").addEventListener("click", function () {
 
   // Close the dialog
   dialog.close();
-});
+}
+
+document.getElementById("subBtn").addEventListener("click", submitForm);
+
+// Add event listener to trigger submit on Enter key press
+document
+  .getElementById("location")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      submitForm();
+    }
+  });
 
 closeButton.addEventListener("click", () => {
   dialog.close();
