@@ -15,9 +15,9 @@ You can see a live preview of the app [here](https://ozioma45.github.io/simpleWe
 
 ## Screenshots
 
-![Current Weather](screenshots/current_weather.png)
-![Forecast](screenshots/forecast.png)
-![Location Search](screenshots/location_search.png)
+![Desktop View](screenshots/Desktop.png)
+![Mobile View](screenshots/Mobile.png)
+![Location Search](screenshots/city.png)
 
 ## Technologies Used
 
